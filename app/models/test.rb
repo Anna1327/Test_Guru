@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Test < ApplicationRecord
+  POSITIVE_INFINITY = Float::INFINITY
+
   belongs_to :category
   belongs_to :author, class_name: 'User'
 
@@ -8,7 +10,25 @@ class Test < ApplicationRecord
   has_many :user_tests, dependent: :destroy
   has_many :users, through: :user_tests
   
-  def self.sort_by_category(category_name)
-    joins(:category).where(categories: { title: category_name }).order(title: :DESC).pluck(:title)
+  scope :simple, -> { where(level: 0..1) }
+  scope :middle, -> { where(level: 2..4) }
+  scope :complex, -> { where(level: 5..POSITIVE_INFINITY) }
+  scope :sort_by_category, lambda { |category_name|
+                              joins(:category)
+                              .where(categories: { title: category_name })
+                            }
+  
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true }
+  validate :validate_positive_level
+
+  def self.category_title_with_order(category_name)
+    sort_by_category(category_name).order(title: :DESC).pluck(:title)
+  end
+
+  private
+
+  def validate_positive_level
+    errors.add(:level) if test.level.to_i.negative?
   end
 end
