@@ -19,16 +19,9 @@ class Test < ApplicationRecord
                             }
   
   validates :title, presence: true
-  validates :level, numericality: { only_integer: true }
-  validate :validate_positive_level
+  validates :level, numericality: { only_integer: true, greater_than: -1 }
 
   def self.category_title_with_order(category_name)
     sort_by_category(category_name).order(title: :DESC).pluck(:title)
-  end
-
-  private
-
-  def validate_positive_level
-    errors.add(:level) if test.level.to_i.negative?
   end
 end

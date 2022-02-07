@@ -1,0 +1,9 @@
+<h3><%= @question.body %></h3>
+<p>Category: <%= @question.test.title %></p>
+<p>Test: <%= @question.test.title %></p>
+<p>Level: <%= @question.test.level %></p>
+
+<%= link_to 'Back', test_path(@question.test) %> |
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Delete', question_path(@question), method: :delete, data: {confirm: 'Are you sure?'} %> |
+<%= link_to 'To tests', tests_path %>

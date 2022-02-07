@@ -1,13 +1,13 @@
 class TestsController < ApplicationController
     
-  before_action :find_test, only: %i[show]
+  before_action :find_test, only: %i[show edit update destroy]
   after_action :send_log_message
   around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    render json: Test.all
+    @tests = Test.all
   end
 
   def show
@@ -15,17 +15,43 @@ class TestsController < ApplicationController
   end
 
   def new
+    @test = Test.new
   end
 
   def create
-    test = Test.create(params.require(:test).permit(:title, :level, :category_id, :author_id))
-    render plain: test.inspect
+    @test = Test.new(tests_params)
+
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
   end
 
   def search
   end
 
+  def edit
+  end
+
+  def update
+    if @test.update(tests_params)
+      redirect_to @test
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to tests_path
+  end
+
   private
+
+  def tests_params
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
+  end
 
   def find_test
     @test = Test.find(params[:id])
