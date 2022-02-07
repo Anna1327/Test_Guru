@@ -1,0 +1,20 @@
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+
+<p>Questions</p>
+
+<ul>
+  <%= render @test.questions %>
+</ul>
+
+<%= link_to 'Back', tests_path %> |
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Delete', test_path(@test), method: :delete, data: {confirm: 'Are you sure?'} %> |
+<%= link_to 'Add question', new_test_question_path(@test) %>

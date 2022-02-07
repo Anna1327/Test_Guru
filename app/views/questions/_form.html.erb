@@ -1,0 +1,12 @@
+<h3><%= question_header(@question) %></h3>
+
+<%= form_with model: [@test, @question] do |form| %>
+  <%= render 'shared/errors', resource: @question %>
+  <p>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </p>
+  <p><%= form.submit %></p>
+<% end %>
+<%= link_to 'Back', test_path(@question.test) %> |
+<%= link_to 'To tests', tests_path %>
