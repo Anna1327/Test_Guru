@@ -30,11 +30,9 @@ tests = Test.create!(
   { title: 'Test 9', level: 2, category: categories.last, author: users.last }]
 )
   
-tests.each do |test|
-  questions = Question.create!(
-    [{ body: 'Question 1', test_id: test },
-    { body: 'Question 2', test_id: test }]
-  )
-  Answer.create!(body: 'Answer 1', question_id: questions.first)
-  Answer.create!(body: 'Answer 2', correct: false, question_id: questions.last)
-end
+questions = Question.create!(
+  [{ body: 'Question 1', test_id: tests[1].id },
+  { body: 'Question 2', test_id: tests[1].id }]
+)
+Answer.create!(body: 'Answer 1', question_id: questions.first.id)
+Answer.create!(body: 'Answer 2', correct: false, question_id: questions.last.id)
