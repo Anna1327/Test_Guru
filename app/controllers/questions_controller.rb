@@ -1,19 +1,17 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
+
   before_action :find_test, only: %i[new create]
   before_action :search, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def index
-    render json: @test.questions
-  end
 
   def new
     @question = @test.questions.new
   end
 
   def show
-    render inline: '<%= @question.inspect %>'
   end
 
   def create

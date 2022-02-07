@@ -1,0 +1,8 @@
+<h3>Test result</h3>
+<div>
+  <% if @test_passage.passed? %>
+    <p>Success! You passed test with <span class="success"> <%= test_passage.success_percentage %>%</span></p> 
+  <% else %>
+    <p>Failed! Test was finished with <span class="failed"><%= test_passage.success_percentage %>%</span></p> 
+  <% end %>
+</div>

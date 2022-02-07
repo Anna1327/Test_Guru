@@ -4,11 +4,11 @@ class Test < ApplicationRecord
   POSITIVE_INFINITY = Float::INFINITY
 
   belongs_to :category
-  belongs_to :author, class_name: 'User'
+  belongs_to :author, class_name: 'User', foreign_key: :user_id, optional: true
 
   has_many :questions, dependent: :destroy
-  has_many :user_tests, dependent: :destroy
-  has_many :users, through: :user_tests
+  has_many :test_passages
+  has_many :users, through: :test_passages
   
   scope :simple, -> { where(level: 0..1) }
   scope :middle, -> { where(level: 2..4) }

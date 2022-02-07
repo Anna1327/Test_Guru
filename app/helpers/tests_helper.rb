@@ -4,4 +4,8 @@ module TestsHelper
   def test_level(test)
     TEST_LEVELS.detect { |level, _| level.include?(test.level) }.last
   end
+
+  def navigation_tests
+    link_to 'To tests', tests_path
+  end
 end
