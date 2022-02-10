@@ -1,0 +1,5 @@
+<% flash.each do |key, message| %>
+  <% if message.present? %>
+    <%= content_tag :p, message, class: "flash #{key}" %>
+  <% end %>
+<% end %>
