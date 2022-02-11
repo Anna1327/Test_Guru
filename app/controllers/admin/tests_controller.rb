@@ -23,7 +23,7 @@ class Admin
       @test.author_id = current_user.id
 
       if @test.save
-        redirect_to admin_test_path(@test)
+        redirect_to [:admin, @test], notice: t('.success')
       else
         render :new
       end

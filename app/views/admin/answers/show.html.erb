@@ -1,12 +1,12 @@
-<h1>Question</h1>
+<h1><%= t('.question') %></h1>
 
 <p>
   <%= @answer.question.body %>
 </p>
 
-<p>Answer: <%= @answer.body %></p>
-<p>Correct: <%= @answer.correct %></p>
+<p><%= t('.answer') %>: <%= @answer.body %></p>
+<p><%= t('.correct') %>: <%= @answer.correct %></p>
 
-<%= link_to 'Back', admin_question_path(@answer.question) %>
-<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
-<%= link_to 'Delete', admin_answer_path(@answer), method: :delete, data: {confirm: 'Are you sure?'} %> |  
+<%= link_to t('navigation.back'), admin_question_path(@answer.question) %>
+<%= link_to t('navigation.edit'), edit_admin_answer_path(@answer) %> |
+<%= link_to t('navigation.delete'), admin_answer_path(@answer), method: :delete, data: {confirm: 'Are you sure?'} %> |   

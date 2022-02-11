@@ -1,16 +1,16 @@
 <h3><%= @question.body %></h3>
-<p>Category: <%= @question.test.title %></p>
-<p>Test: <%= @question.test.title %></p>
-<p>Level: <%= @question.test.level %></p>
+<p><%= t('.category') %>: <%= @question.test.title %></p>
+<p><%= t('.test') %>: <%= @question.test.title %></p>
+<p><%= t('.level') %>: <%= @question.test.level %></p>
 
-<h2>Answers</h2>
+<h2><%= t('.answers') %></h2>
 
 <ol>
   <%= render @question.answers %>
 </ol>
 
-<%= link_to 'Back', admin_test_path(@question.test) %> |
-<%= link_to 'Edit', edit_admin_question_path(@question) %> |
-<%= link_to 'Delete', admin_question_path(@question), method: :delete, data: {confirm: 'Are you sure?'} %> |
-<%= link_to 'To tests', admin_tests_path %> 
-<%= link_to 'New answer', new_admin_question_answer_path(@question) %>
+<%= link_to t('navigation.back'), admin_test_path(@question.test) %> |
+<%= link_to t('navigation.edit'), edit_admin_question_path(@question) %> |
+<%= link_to t('navigation.delete'), admin_question_path(@question), method: :delete, data: {confirm: 'Are you sure?'} %> |
+<%= link_to t('navigation.tests'), admin_tests_path %> 
+<%= link_to t('.add_answer'), new_admin_question_answer_path(@question) %>

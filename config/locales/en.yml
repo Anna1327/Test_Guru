@@ -30,4 +30,116 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  navigation:
+    back: "Back"
+    edit: "Edit"
+    delete: "Delete"
+    tests: "To tests"
+    show: "Show"
+
+  add:
+    test: "New test"
+    question: "Add question"
+
+  header-nav:
+    logout: "Logout"
+    greeting: "Welcome"
+    panel: "TestGuru Admin Panel"
+
+  helpers:
+    submit:
+      create: "Create"
+      update: "Update"
+      start: "Start"
+      next: "Next"
+    label:
+      test: 
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+      question:
+        body: "Body"
+      answer:
+        correct: "Correct"
+        body: "Body"
+    select:
+      prompt: "Please select"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests:
+    index:
+      header: "Trickly Tests"
+      title: "Title"
+      level: "Level"
+      questions: "Questions"
+      actions: "Actions"
+
+  test_passages:
+    result:
+      header: "Test %{title} was completed!"
+      success: "Success! You passed test with "
+      failed: "Failed! Test was finished with "
+      result: "Test result"
+    show:
+      header: "Passing the %{title} Test"
+
+  admin:
+    tests:
+      index:
+        header: "Trickly Tests"
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+
+      show:
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+
+      create:
+        success: "Test was successfully created"
+
+      new:
+        add_test: "Create new test"
+
+      edit:
+        edit_test: "Edit test "
+
+    questions:
+      show:
+        add_answer: "Add answer"
+        category: "Category"
+        test: "Test"
+        level: "Level"
+        answers: "Answers"
+      edit:
+        edit_question: "Edit test question"
+
+      new: 
+        create_question: "Create new question"
+
+    answers:
+      show:
+        add_answer: "Add answer"
+        category: "Category"
+        test: "Test"
+        level: "Level"
+        answers: "Answers"
+      new:
+        create_answer: "Create new answer"
+      edit:
+        edit_answer: "Edit answer"
+      show:
+        question: "Question"
+        answer: "Answer"
+        correct: "Correct"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
