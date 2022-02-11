@@ -37,6 +37,10 @@ en:
     tests: "To tests"
     show: "Show"
 
+  footer:
+    project: "Educational project at Thinknetica online school"
+    about: "TestGuru - test management system"
+
   add:
     test: "New test"
     question: "Add question"

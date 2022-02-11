@@ -1,5 +1,5 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * This is a manifest file that'll be compiled into application.js, which will include all the files
  * listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
@@ -10,16 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require rails-ujs
+ *= require turbolinks
+ *= require jquery3
+ *= require popper
+ *= require bootstrap-sprockets
  *= require_tree .
- *= require_self
  */
-
-.header {
-    text-align: right;
-}
-.success {
-    color: green;
-}
-.failed {
-    color: red;
-}
