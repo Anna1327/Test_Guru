@@ -1,12 +1,24 @@
-<h1><%= t('tests.index.header') %></h1>
+<div class="container d-flex">
+  <div class="col col-md-8">
+    <p class="h3">
+      <%= t('tests.index.header') %>
+    </p>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th><%= t('tests.index.title') %></th>
-    <th><%= t('tests.index.level') %></th>
-    <th><%= t('tests.index.questions') %></th>
-    <th><%= t('tests.index.actions') %></th>
-  </tr>
+<div class="container d-flex justify-content-center">
+  <div class="col col-md-12">
+    <table class="table table-striped bg-light">
+      <thead>
+      <tr>
+        <th><%= t('tests.index.title') %></th>
+        <th><%= t('tests.index.level') %></th>
+        <th><%= t('tests.index.questions') %></th>
+        <th><%= t('tests.index.actions') %></th>
+      </tr>
+      </thead>
 
   <%= render @tests %>
-</table>
+    </table>
+  </div>
+</div>

@@ -5,6 +5,11 @@ ru:
     delete: "Удалить"
     tests: "К тестам"
     show: "Показать"
+
+  footer:
+    project: "Учебный проект в онлайн-школе Thinknetica"
+    about: "TestGuru - система управления тестами"
+    
   add:
     test: "Новый тест"
     question: "Добавить вопрос"
