@@ -1,0 +1,15 @@
+<h3><%= t('.header') %></h3>
+
+<table>
+  <thead style="text-align: center;">
+  <tr>
+    <td><%= t('.question') %></td>
+    <td><%= t('.gist_url') %></td>
+    <td rowspan="2"><%= t('.author') %></td>
+  </tr>
+  </thead>
+
+  <%= render @gists %>
+</table>
+
+<%= link_to t('common.tests'), admin_tests_path %>
