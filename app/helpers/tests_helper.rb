@@ -6,6 +6,6 @@ module TestsHelper
   end
 
   def navigation_tests
-    link_to 'To tests', tests_path
+    link_to "#{I18n.t("navigation.tests")}", tests_path
   end
 end

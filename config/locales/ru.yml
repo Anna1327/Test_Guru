@@ -1,0 +1,116 @@
+ru:
+  navigation:
+    back: "Назад"
+    edit: "Изменить"
+    delete: "Удалить"
+    tests: "К тестам"
+    show: "Показать"
+  add:
+    test: "Новый тест"
+    question: "Добавить вопрос"
+
+  header-nav:
+    logout: "Выйти"
+    greeting: "Добро пожаловать"
+    panel: "Панель Администратора TestGuru"
+
+  helpers:
+    submit:
+      create: "Создать"
+      update: "Обновить"
+      start: "Начать"
+      next: "Следующий"
+    label:
+      test:
+        title: "Название теста"
+        level: "Уровень"
+        category_id: "Категория"
+      question:
+        body: "Вопрос"
+      answer:
+        correct: "Корректный"
+        body: "Ответ"
+    select:
+      prompt: "Выберите из списка"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      questions: "Вопросы"
+      actions: "Действия"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен"
+      success: "Отлично! Вы прошли тест на "
+      failed: "Неудача! Тест был завершен на "
+      result: "Результат теста"
+    show:
+      header: "Прохождение %{title} теста"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+        actions: "Действия"
+
+      show:
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+
+      create:
+        success: "Тест успешно создан"
+
+      new:
+        add_test: "Создать новый тест"
+
+      edit:
+        edit_test: "Изменить тест "
+
+    questions:
+      show:
+        add_answer: "Добавить ответ"
+        category: "Категория"
+        test: "Тест"
+        level: "Уровень"
+        answers: "Ответы"
+
+      edit:
+        edit_question: "Изменить вопрос теста"
+
+      new: 
+        create_question: "Создать новый вопрос"
+
+    answers:
+      show:
+        add_answer: "Добавить ответ"
+        category: "Категория"
+        test: "Тест"
+        level: "Уровень"
+        answers: "Ответы"
+      new:
+        create_answer: "Создать новый ответ"
+      edit:
+        edit_answer: "Изменить ответ"
+      show:
+        question: "Вопрос"
+        answer: "Ответ"
+        correct: "Корректный"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно прошли тест на TestGuru!"
