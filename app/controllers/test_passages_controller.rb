@@ -23,11 +23,11 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question)
-    result.call
-    if result.success?
+    service = GistQuestionService.new(@test_passage.current_question)
+    result = service.call
+    if service.success?
         Gist.new(
-          url: result.url, 
+          url: result.html_url, 
           question_id: @test_passage.current_question.id, 
           author_id: current_user.id).save
 
