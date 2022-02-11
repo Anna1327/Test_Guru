@@ -12,7 +12,7 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
+    @test_passage.accept(params[:answer_ids])
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
@@ -23,12 +23,14 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
-
+    result = GistQuestionService.new(@test_passage.current_question)
+    result.call
     if result.success?
-      question_title = @test_passage.current_question.body
-      current_user.gists.create(question_title: question_title[0..24], url: result.id, 
-        question_id: @test_passage.current_question.id).save!
+        Gist.new(
+          url: result.url, 
+          question_id: @test_passage.current_question.id, 
+          author_id: current_user.id).save
+
         flash_options = { notice: t('.success') }
     else
         flash_options = { notice: t('.failure') }

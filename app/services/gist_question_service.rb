@@ -7,11 +7,16 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    @result = @client.create_gist(gist_params)
+    @result
   end
 
   def success?
     @client.last_response.status == 201
+  end
+
+  def url
+    @result.html_url
   end
 
   private
