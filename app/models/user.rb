@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
   has_many :tests, class_name: "Test", foreign_key: "author_id", dependent: :destroy
+  has_many :gists, class_name: "Gist", foreign_key: "author_id", dependent: :destroy
   
   def get_tests(level)
     tests.where(level: level)

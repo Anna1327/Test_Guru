@@ -91,6 +91,10 @@ en:
       result: "Test result"
     show:
       header: "Passing the %{title} Test"
+      gist: 'Create a new Gist'
+    gist:
+      success: "Gist saved successfully!"
+      failure: "An error occurred while saving the Gist"
 
   admin:
     tests:
@@ -143,6 +147,18 @@ en:
         question: "Question"
         answer: "Answer"
         correct: "Correct"
+
+    gists:
+      index:
+        header: 'Gists'
+        question: 'Question'
+        gist_url: 'Link'
+        author: 'Author'
+        delete: 'Delete'
+
+  services:
+    gist_question_service:
+      description: "Test Guru question from test %{title}"
 
   tests_mailer:
     completed_test:

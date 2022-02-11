@@ -62,6 +62,10 @@ ru:
       result: "Результат теста"
     show:
       header: "Прохождение %{title} теста"
+      gist: 'Создать Gist'
+    gist:
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения Gist произошла ошибка"
 
   admin:
     tests:
@@ -115,6 +119,18 @@ ru:
         question: "Вопрос"
         answer: "Ответ"
         correct: "Корректный"
+
+    gists:
+      index:
+        header: 'Список Gist'
+        question: 'Вопрос'
+        gist_url: 'Ссылка'
+        author: 'Автор'
+        delete: 'Удалить'
+
+  services:
+    gist_question_service:
+      description: "Test Guru вопрос из теста %{title}" 
 
   tests_mailer:
     completed_test:

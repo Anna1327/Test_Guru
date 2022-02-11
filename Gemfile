@@ -31,12 +31,19 @@ gem "bcrypt-ruby", "~> 3.1.5"
 #AUTH
 gem 'devise', '~> 4.8.0'
 
+#NETWORKING
+gem 'faraday', '1.8.0'
+
 #LOCALIZATION
 gem 'rails-i18n', '~> 7.0'
 
 #UI
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.1.3'
+
+gem 'octokit', '4.21.0'
+
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
