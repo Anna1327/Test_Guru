@@ -17,11 +17,11 @@ document.addEventListener('turbolinks:load', function() {
       icon.classList.add('no-confirmation')
       icon.classList.add('hide')
       return
-    } else if (password === password_confirmation && password_confirmation != "") {
+    } 
+    if (password === password_confirmation && password_confirmation != "") {
       icon.classList.remove('no-confirmation')
       icon.classList.remove('hide')
-  
-    } else if (password != password_confirmation && password_confirmation != "") {
+    } else {
       icon.classList.add('no-confirmation')
       icon.classList.remove('hide')
     }
