@@ -30,6 +30,8 @@ document.addEventListener('turbolinks:load', function() {
   
     if (link && testTitle && formInline) {
       generateFormAndText(link, testTitle, formInline)
+    } else {
+      return
     }
   }
 
