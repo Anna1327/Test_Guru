@@ -40,6 +40,8 @@ gem 'rails-i18n', '~> 7.0'
 #UI
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.1.3'
+gem 'octicons_helper'
+gem 'coffee-rails'
 
 gem 'octokit', '4.21.0'
 
