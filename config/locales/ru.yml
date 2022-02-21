@@ -89,6 +89,9 @@ ru:
 
       edit:
         edit_test: "Изменить тест "
+      
+      form_inline:
+        submit: "OK"
 
     questions:
       show:

@@ -6,6 +6,7 @@
     <p>
       <%= link_to t('add.test'), new_admin_test_path %>
     </p>
+    <%= render 'shared/errors', resource: @test %>
   </div>
 </div>
 <div class="container d-flex justify-content-center">
