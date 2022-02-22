@@ -13,7 +13,7 @@ function sortRowsByTitle() {
   var sortedRows = []
 
   //select all table rows except the first one which is the header
-  for (var i = 1; rows.length; i++) {
+  for (var i = 1; i < rows.length; i++) {
       sortedRows.push(rows[i])
   }
 
