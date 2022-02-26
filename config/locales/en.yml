@@ -119,6 +119,9 @@ en:
       edit:
         edit_test: "Edit test "
 
+      form_inline:
+        submit: "OK"
+
     questions:
       show:
         add_answer: "Add answer"

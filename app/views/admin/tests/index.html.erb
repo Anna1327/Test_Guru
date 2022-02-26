@@ -6,6 +6,7 @@
     <p>
       <%= link_to t('add.test'), new_admin_test_path %>
     </p>
+    <%= render 'shared/errors', resource: @test %>
   </div>
 </div>
 <div class="container d-flex justify-content-center">
@@ -15,8 +16,8 @@
       <tr>
         <th class="sort-by-title pointer">
           <%= t('.title')%>
-          <%= octicon 'arrow-up', class: 'text-success hide' %>
-          <%= octicon 'arrow-down', class: 'text-success hide' %>
+          <%= octicon 'arrow-up', class: 'text-success' %>
+          <%= octicon 'arrow-down', class: 'text-success' %>
         </th>
         <th><%= t('.level')%></th>
         <th><%= t('.questions')%></th>
