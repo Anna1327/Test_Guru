@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create!(
-  [{ firstName: 'Anna', lastName: 'Rubinova', role: 'admin', email: 'aoi.yatsu@ya.ru' },
-  { firstName: 'Andrey', lastName: 'Ivanov', role: 'user', email: 'aoi.yatsu@mail.ru' },
-  { firstName: 'Kristina', lastName: 'Smirnova', role: 'user', email: 'test@test.ru' }]
+  [{ first_name: 'Anna', last_name: 'Rubinova', role: 'admin', email: 'aoi.yatsu@ya.ru', password: 'secretus' },
+  { first_name: 'Andrey', last_name: 'Ivanov', role: 'user', email: 'aoi.yatsu@mail.ru', password: 'secretus' },
+  { first_name: 'Kristina', last_name: 'Smirnova', role: 'user', email: 'test@test.ru', password: 'secretus'}]
 )
   
 categories = Category.create!(
@@ -19,15 +19,15 @@ categories = Category.create!(
 )
   
 tests = Test.create!(
-  [{ title: 'Test 1', level: 1, category: categories.first, author: users.first },
-  { title: 'Test 2', level: 2, category: categories[1], author: users[1] },
-  { title: 'Test 3', level: 3, category: categories.last, author: users.last },
-  { title: 'Test 4', level: 1, category: categories.first, author: users.first },
-  { title: 'Test 5', level: 2, category: categories[1], author: users[1] },
-  { title: 'Test 6', level: 3, category: categories.last, author: users.last },
-  { title: 'Test 7', level: 1, category: categories.first, author: users.first },
-  { title: 'Test 8', level: 2, category: categories[1], author: users[1] },
-  { title: 'Test 9', level: 3, category: categories.last, author: users.last }]
+  [{ title: 'Test 1', level: 1, category: categories.first, author_id: users.first.id },
+  { title: 'Test 2', level: 2, category: categories[1], author_id: users[1].id },
+  { title: 'Test 3', level: 3, category: categories.last, author_id: users.last.id },
+  { title: 'Test 4', level: 1, category: categories.first, author_id: users.first.id },
+  { title: 'Test 5', level: 2, category: categories[1], author_id: users[1].id },
+  { title: 'Test 6', level: 3, category: categories.last, author_id: users.last.id },
+  { title: 'Test 7', level: 1, category: categories.first, author_id: users.first.id },
+  { title: 'Test 8', level: 2, category: categories[1], author_id: users[1].id },
+  { title: 'Test 9', level: 3, category: categories.last, author_id: users.last.id }]
 )
   
 questions = Question.create!(
