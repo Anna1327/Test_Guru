@@ -12,9 +12,6 @@ class TestsController < ApplicationController
   end
 
   def start
-    puts "покажи мне тест #{@test.inspect}"
-    puts "покажи мне юзера #{current_user.inspect}"
-    puts "покажи мне push #{current_user.tests.push(@test).inspect}"
     current_user.tests.push(@test)
     TestPassage.create(user_id: current_user.id, test_id: @test.id)
     redirect_to current_user.test_passage(@test)
