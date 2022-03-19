@@ -92,9 +92,18 @@ en:
     show:
       header: "Passing the %{title} Test"
       gist: 'Create a new Gist'
+      no_questions: "Error! Tests don't contain questions."
     gist:
       success: "Gist saved successfully!"
       failure: "An error occurred while saving the Gist"
+
+  contact_us:
+    contact_us: "Contact Us"
+    name: "Your name"
+    email: "Your email"
+    question: "Your question"
+    text: "Write you text this..."
+    send: "Send"
 
   admin:
     tests:

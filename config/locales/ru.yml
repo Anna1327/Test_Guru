@@ -63,9 +63,18 @@ ru:
     show:
       header: "Прохождение %{title} теста"
       gist: 'Создать Gist'
+      no_questions: "Ошибка! Тест не содержит вопросов"
     gist:
       success: "Gist успешно сохранён!"
       failure: "Во время сохранения Gist произошла ошибка"
+  
+  contact_us:
+    contact_us: "Связаться с нами"
+    name: "Ваше имя"
+    email: "Ваш email"
+    question: "Ваш вопрос"
+    text: "Напишите здесь ваш вопрос..."
+    send: "Отправить"
 
   admin:
     tests:
