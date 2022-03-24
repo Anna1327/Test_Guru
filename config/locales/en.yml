@@ -92,7 +92,8 @@ en:
     show:
       header: "Passing the %{title} Test"
       gist: 'Create a new Gist'
-      no_questions: "Error! Tests don't contain questions."
+    update:
+      no_answer: 'Please select an answer'
     gist:
       success: "Gist saved successfully!"
       failure: "An error occurred while saving the Gist"

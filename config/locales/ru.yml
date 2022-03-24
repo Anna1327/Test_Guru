@@ -63,7 +63,8 @@ ru:
     show:
       header: "Прохождение %{title} теста"
       gist: 'Создать Gist'
-      no_questions: "Ошибка! Тест не содержит вопросов"
+    update:
+      no_answer: 'Пожалуйста выберите ответ'
     gist:
       success: "Gist успешно сохранён!"
       failure: "Во время сохранения Gist произошла ошибка"

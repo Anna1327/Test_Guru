@@ -18,25 +18,30 @@ function sortRowsByTitle() {
   }
 
   var arrowUp = this.querySelector('.octicon-arrow-up')
+  var arrowDown = this.querySelector('.octicon-arrow-down')
 
-  if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
+  if (arrowUp.classList.contains('hide')) {
     sortedRows.sort(compareRowsAsc)
-    this.querySelector('.octicon-arrow-up').classList.remove('hide')
-    this.querySelector('.octicon-arrow-down').classList.add('hide')
+    arrowUp.classList.remove('hide')
+    arrowDown.classList.add('hide')
   } else {
     sortedRows.sort(compareRowsDesc)
-    this.querySelector('.octicon-arrow-up').classList.add('hide')
-    this.querySelector('.octicon-arrow-down').classList.remove('hide')
+    arrowUp.classList.add('hide')
+    arrowDown.classList.remove('hide')
   }
 
-
   var sortedTable = document.createElement('table')
+  sortedTable.classList.add('table-striped')
 
   sortedTable.classList.add('table')
-  sortedTable.appendChild(rows[0])
+  var sortedTableHead = document.createElement('thead')
+  var sortedTableBody = document.createElement('tbody')
+  sortedTableHead.appendChild(rows[0])
+  sortedTable.appendChild(sortedTableHead)
+  sortedTable.appendChild(sortedTableBody)
 
   for (var i = 0; i < sortedRows.length; i++) {
-    sortedTable.appendChild(sortedRows[i])
+    sortedTableBody.appendChild(sortedRows[i])
   }
 
   table.parentNode.replaceChild(sortedTable, table)
