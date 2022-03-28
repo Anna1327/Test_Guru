@@ -6,6 +6,7 @@ ru:
   attributes:
     title: "Название"
     category: "Категория"
+    published: "Опубликовать"
 
   errors:
     messages:

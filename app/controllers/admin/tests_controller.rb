@@ -20,11 +20,14 @@ class Admin
     def create
       @test = Test.new(tests_params)
       @test.author_id = current_user.id
-
-      if @test.save
-        redirect_to [:admin, @test], notice: t('.success')
-      else
-        render :new
+      begin
+        if @test.save
+          redirect_to [:admin, @test], notice: t('.success')
+        else
+          render :new
+        end
+      rescue StandardError
+        redirect_to new_admin_test_path, notice: t('.failure')
       end
     end
 
@@ -58,7 +61,7 @@ class Admin
     private
 
     def tests_params
-      params.require(:test).permit(:title, :level, :category_id)
+      params.require(:test).permit(:title, :level, :category_id, :published)
     end
 
     def find_tests

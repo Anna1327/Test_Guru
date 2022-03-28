@@ -6,7 +6,6 @@ class TestPassagesController < ApplicationController
   before_action :find_test_passage, only: %i[show update result gist]
 
   def show
-    render :show
   end
 
   def result

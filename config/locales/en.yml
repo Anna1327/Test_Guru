@@ -122,6 +122,7 @@ en:
 
       create:
         success: "Test was successfully created"
+        failure: "Test with such title and level already exist"
 
       new:
         add_test: "Create new test"

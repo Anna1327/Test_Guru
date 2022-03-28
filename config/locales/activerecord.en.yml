@@ -6,6 +6,8 @@ en:
   attributes:
     test:
       title: "Title"
+      category: "Category"
+      published: "Published"
 
   errors:
     messages:
