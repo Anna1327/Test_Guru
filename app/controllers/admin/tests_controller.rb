@@ -18,7 +18,7 @@ class Admin
     end
 
     def create
-      @test = Test.new(tests_params.merge(author_id: current_user.id))
+      @test = current_user.created_tests.new(tests_params)
       begin
         if @test.save
           redirect_to [:admin, @test], notice: t('.success')
