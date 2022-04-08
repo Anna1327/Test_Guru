@@ -1,0 +1,20 @@
+<%= form_with(url: contact_us_path, method: "post") do |form| %>
+
+  <p>
+    <%= form.label t('contact_us.name') %><br>
+    <%= form.text_field :name , id: :name, value: current_user.first_name %>
+  </p>
+
+  <p>
+    <%= form.label t('contact_us.email') %><br>
+    <%= form.text_field :email, id: :email, value: current_user.email %>
+  </p>
+
+  <p>
+    <%= form.label t('contact_us.question') %><br>
+    <%= form.text_area :question, id: :question, placeholder: t('contact_us.text') %>
+  </p>
+
+  <p><%= form.submit value=t('contact_us.send')%></p>
+
+<% end %>

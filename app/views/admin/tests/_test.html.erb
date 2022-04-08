@@ -9,7 +9,8 @@
     <td class="align-middle"><%= link_to t('navigation.show'), admin_test_path(test) %></td>
     <td class="align-middle">
       <%= link_to t('navigation.edit'), 
-                  edit_admin_test_path(test), 
+                  edit_admin_test_path(test),
+                  method: :get, 
                   data: { test_id: test.id },
                   class: 'form-inline-link' %>
     </td>

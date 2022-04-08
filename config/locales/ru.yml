@@ -63,9 +63,19 @@ ru:
     show:
       header: "Прохождение %{title} теста"
       gist: 'Создать Gist'
+    update:
+      no_answer: 'Пожалуйста выберите ответ'
     gist:
       success: "Gist успешно сохранён!"
       failure: "Во время сохранения Gist произошла ошибка"
+  
+  contact_us:
+    contact_us: "Связаться с нами"
+    name: "Ваше имя"
+    email: "Ваш email"
+    question: "Ваш вопрос"
+    text: "Напишите здесь ваш вопрос..."
+    send: "Отправить"
 
   admin:
     tests:
@@ -83,6 +93,7 @@ ru:
 
       create:
         success: "Тест успешно создан"
+        failure: "Тест с таким названием и уровнем уже существует"
 
       new:
         add_test: "Создать новый тест"

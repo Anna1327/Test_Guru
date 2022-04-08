@@ -8,11 +8,12 @@ class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    @tests = Test.all
+    @tests = Test.where(published: true)
   end
 
   def start
     current_user.tests.push(@test)
+    TestPassage.create(user_id: current_user.id, test_id: @test.id)
     redirect_to current_user.test_passage(@test)
   end
 

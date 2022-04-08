@@ -92,9 +92,19 @@ en:
     show:
       header: "Passing the %{title} Test"
       gist: 'Create a new Gist'
+    update:
+      no_answer: 'Please select an answer'
     gist:
       success: "Gist saved successfully!"
       failure: "An error occurred while saving the Gist"
+
+  contact_us:
+    contact_us: "Contact Us"
+    name: "Your name"
+    email: "Your email"
+    question: "Your question"
+    text: "Write you text this..."
+    send: "Send"
 
   admin:
     tests:
@@ -112,6 +122,7 @@ en:
 
       create:
         success: "Test was successfully created"
+        failure: "Test with such title and level already exist"
 
       new:
         add_test: "Create new test"
