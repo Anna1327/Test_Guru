@@ -18,12 +18,21 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def success_percentage
-    (self.correct_questions * 100.0 / test.questions.count).round(1)
+  def passed?(test_passage)
+    badge_service = BadgeService.new(test_passage)
+
+    if completed? && success_percentage >= SUCCESS_PERCENT
+      badge_service.create_completed_test(true)
+      badge_service.check_badges
+      return 'success', success_percentage 
+    elsif success_percentage < SUCCESS_PERCENT
+      badge_service.create_completed_test(false)
+      return 'error', success_percentage 
+    end
   end
 
-  def passed?
-    success_percentage >= SUCCESS_PERCENT if completed?
+  def success_percentage
+    (self.correct_questions * 100.0 / test.questions.count).round(1)
   end
 
   def current_question_num

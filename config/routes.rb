@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :badges
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root to: 'tests#index'
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: %i[index], to: 'badges'
+
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member
@@ -29,5 +32,6 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index destroy]
+    resources :badges
   end
 end
