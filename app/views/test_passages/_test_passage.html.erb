@@ -1,6 +1,6 @@
 <h3><%= t('test_passages.result.result') %></h3>
 <div>
-  <% if @test_passage.passed? %>
+  <% if @test_passage.passed?(test_passage) %>
     <p><%= t('test_passages.result.success') %><span class="success"> <%= test_passage.success_percentage %>%</span></p>
   <% else %>
     <p><%= t('test_passages.result.failed') %><span class="failed"><%= test_passage.success_percentage %>%</span></p>

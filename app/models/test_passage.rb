@@ -18,12 +18,16 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def success_percentage
-    (self.correct_questions * 100.0 / test.questions.count).round(1)
+  def passed?
+    if completed? && success_percentage >= SUCCESS_PERCENT
+      true 
+    elsif success_percentage < SUCCESS_PERCENT
+      false
+    end
   end
 
-  def passed?
-    success_percentage >= SUCCESS_PERCENT if completed?
+  def success_percentage
+    (self.correct_questions * 100.0 / test.questions.count).round(1)
   end
 
   def current_question_num

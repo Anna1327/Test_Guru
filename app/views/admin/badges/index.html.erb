@@ -1,0 +1,21 @@
+<h1> Admin Badges </h1>
+
+<p class="new-test">
+  <%= link_to "New Badge", new_admin_badge_url %>
+</p>
+
+<%= render 'shared/errors', resource: @badge %>
+
+<table class="table">
+  <tr>
+    <th>
+      <%= t('.title') %>
+    </th>
+    <th>Image</th>
+    <th>Condition</th>
+    <th colspan="3"><%= t('.action') %></th>
+  </tr>
+
+  <%= render @badges %>
+
+</table>
