@@ -12,8 +12,6 @@ class BadgeService
     completed_test = CompletedTest.where(user_id: @user_id, test_id: @test_id)
     if completed_test.presence
       update_completed_test(completed_test, passed)
-    else
-      create_new_completed_test(passed)
     end
   end
 
@@ -27,14 +25,6 @@ class BadgeService
 
   def update_completed_test(completed_test, passed)
     completed_test.first.update(passed: passed, attempts: completed_test.first.attempts + 1)
-  end
-
-  def create_new_completed_test(passed)
-    completed_test = CompletedTest.new(user_id: @user_id, test_id: @test_id, passed: passed)
-    completed_test.save!
-    if completed_test.attempts == 1
-      check_first_attempt_badge
-    end
   end
 
   def check_first_attempt_badge
@@ -61,39 +51,21 @@ class BadgeService
     test_ids.sort
   end
 
-  def check_conditions(badge)
+  def check_conditions(badge, user)
     if badge.condition["level"]
       level = badge.condition["level"]
-      all_test_ids = find_all_tests_by_level(level)
-      completed_test_ids = get_completed_test_level_ids(level)
-      add_badge_to_user(all_test_ids, completed_test_ids, badge)
+      tests_for_badge = Test.where(level: level)
     elsif badge.condition["category"]
       category = badge.condition["category"]
-      all_test_ids = find_all_tests_by_category(category)
-      completed_test_ids = get_completed_test_category_ids(category)
-      add_badge_to_user(all_test_ids, completed_test_ids, badge)
+      tests_for_badge = Test.where(category: category).pluck(:id)
     end
+    user_tests = TestPassage.find_by(user_id: user.id).pluck(:test_id)
+    add_badge_to_user(tests_for_badge, user_tests, badge)
   end
 
-  def get_completed_test_level_ids(level)
-    completed_test_ids = []
-    @user_completed_tests.each do |test| 
-      completed_test_ids.push(test.test.id) if test.test.level == level
-    end
-    completed_test_ids
-  end
-    
-  def get_completed_test_category_ids(category)
-    completed_test_ids = []
-    @user_completed_tests.each do |test| 
-      completed_test_ids.push(test.test.id) if test.test.category_id == category
-    end
-    completed_test_ids
-  end
-
-  def add_badge_to_user(all_test_ids, completed_test_ids, badge)
-    completed_test_ids = completed_test_ids.sort
-    if completed_test_ids == all_test_ids && !completed_test_ids.empty? && !all_test_ids.empty?
+  def add_badge_to_user(tests_for_badge, user_tests, badge)
+    user_tests = user_tests.sort
+    if user_tests == tests_for_badge && !user_tests.empty? && !tests_for_badge.empty?
       current_badge = UserBadge.where(user_id: @test_passage.user.id, badge_id: badge.id)
       unless current_badge.presence
         new_badge = @test_passage.user.user_badges.new(badge_id: badge.id)

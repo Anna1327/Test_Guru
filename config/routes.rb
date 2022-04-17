@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :badges, only: %i[index], to: 'badges'
+  resources :badges, only: %i[index]
 
   namespace :admin do
     resources :tests do
