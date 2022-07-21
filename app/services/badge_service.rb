@@ -54,10 +54,10 @@ class BadgeService
   def check_conditions(badge, user)
     if badge.condition["level"]
       level = badge.condition["level"]
-      tests_for_badge = Test.where(level: level)
+      tests_for_badge = find_all_tests_by_level(level)
     elsif badge.condition["category"]
       category = badge.condition["category"]
-      tests_for_badge = Test.where(category: category).pluck(:id)
+      tests_for_badge = find_all_tests_by_category(category)
     end
     user_tests = TestPassage.find_by(user_id: user.id).pluck(:test_id)
     add_badge_to_user(tests_for_badge, user_tests, badge)
