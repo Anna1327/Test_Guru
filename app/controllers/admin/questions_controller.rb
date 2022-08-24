@@ -18,7 +18,6 @@ class Admin
     def create
       @question = @test.questions.new(question_params)
       if @question.save
-        @question.update(number: @test.questions.count)
         redirect_to admin_test_path(@test)
       else
         render :new
