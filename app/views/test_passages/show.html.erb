@@ -1,6 +1,9 @@
-<h1><%= t('.header', title: @test_passage.test.title) %></h1>
-
-<%= current_question %>
+<div class="title_container">
+  <h1><%= t('.header', title: @test_passage.test.title ) %></h1>
+  <div><h6><%= t('helpers.time') %></h6>
+    <div class="timer" data-timer="<%= @test_passage.get_timer %>"></div>
+  </div>
+</div>
 
 <p>
   <b><%= @test_passage.current_question.body %></b>
@@ -20,16 +23,16 @@
 <% end %>
 
 <div class="mt-3">
-  <%= t('.current_question') %> 
-  <%= @test_passage.current_question %>
-  of
+  <%= t('.current_question') %>
+  <%= @test_passage.current_question.number %>
+  <%= t('.of') %>
   <span class="all_questions">
-    <%= @test_passage.test.questions.count.to_i %> 
+    <%= @test_passage.test.questions.count.to_i %>
   </span>
 </div>
 
 <div class="progress-bar-container">
-  <div class="progress-bar" 
+  <div class="progress-bar"
        data-current-test = "<%= @test_passage.current_question %>"
        data-all-tests = "<%= @test_passage.test.questions.count.to_i %>">
     <p class="progress-bar_percent"></p>

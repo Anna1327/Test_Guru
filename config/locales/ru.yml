@@ -20,6 +20,8 @@ ru:
     panel: "Панель Администратора TestGuru"
 
   helpers:
+    minutes: " минут"
+    time: "Время: "
     submit:
       create: "Создать"
       update: "Обновить"
@@ -63,6 +65,8 @@ ru:
     show:
       header: "Прохождение %{title} теста"
       gist: 'Создать Gist'
+      current_question: "Текущий вопрос: "
+      of: " из "
     update:
       no_answer: 'Пожалуйста выберите ответ'
     gist:
@@ -85,6 +89,8 @@ ru:
         level: "Уровень"
         questions: "Вопросы"
         actions: "Действия"
+        time: "Время"
+        minutes: " минут"
 
       show:
         title: "Название"

@@ -20,6 +20,7 @@ class Test < ApplicationRecord
   
   validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than: -1 }
+  validates :timer, presence: true, numericality: { only_integer: true}
 
   def self.category_title_with_order(category_name)
     sort_by_category(category_name).order(title: :DESC).pluck(:title)

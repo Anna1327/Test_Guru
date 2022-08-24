@@ -3,4 +3,5 @@
     <td><%= test_level(test) %></td>
     <td><%= test.questions.count %></td>
     <td><%= button_to t('helpers.submit.start'), start_test_path(test) %></td>
+    <td><%= test.timer.to_s + t('helpers.minutes') %></td>
   </tr>

@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 require("../utilities/sorting")
+require("../utilities/timer")
 require("../utilities/form_inline")
 
 Rails.start()
