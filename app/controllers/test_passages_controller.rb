@@ -4,7 +4,6 @@ class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :find_test_passage, only: %i[show update result gist]
-  before_action :check_time_left, only: %i[show update gist]
 
   def show
   end
@@ -16,7 +15,7 @@ class TestPassagesController < ApplicationController
     if params[:answer_ids]
       @test_passage.accept!(params[:answer_ids])
 
-      if @test_passage.completed?
+      if @test_passage.completed? || check_time_left
         TestsMailer.completed_test(@test_passage).deliver_now
         redirect_to result_test_passage_path(@test_passage)
       else
@@ -54,6 +53,7 @@ class TestPassagesController < ApplicationController
   end
 
   def time_left?
-    @test_passage.created_at + @test_passage.test.timer * 60 - Time.now <= 0 ? true : false
+    return true if @test_passage.get_timer <= 0
+    false
   end
 end
