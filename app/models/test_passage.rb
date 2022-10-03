@@ -23,7 +23,7 @@ class TestPassage < ApplicationRecord
     if completed? && success_percentage >= SUCCESS_PERCENT
       badge_service.check_completed_test
       true
-    elsif success_percentage < SUCCESS_PERCENT
+    else
       false
     end
   end

@@ -23,7 +23,7 @@ class BadgeService
   private
 
   def check_attempts
-    @user_completed_tests.where(test_id: @test.id).count
+    TestPassage.where(user_id: @user.id, test_id: @test.id).count
   end
 
   def current_badge
@@ -32,7 +32,7 @@ class BadgeService
 
   def check_first_attempt_badge(badge)
     if check_attempts == 1 && current_badge.blank?
-      new_badge = @test_passage.user.user_badges.new(badge_id: badge.id)
+      new_badge = @user_badges.new(badge_id: badge.id)
       new_badge.save
     end
   end
@@ -49,7 +49,7 @@ class BadgeService
 
   def add_badge_to_user(tests_for_badge, user_tests, badge)
     if ((tests_for_badge - user_tests.uniq).empty? || tests_for_badge == user_tests.uniq) && current_badge.empty?
-      new_badge = @test_passage.user.user_badges.new(badge_id: badge.id)
+      new_badge = @user.user_badges.new(badge_id: badge.id)
       new_badge.save
     end
   end
