@@ -53,7 +53,6 @@ class TestPassagesController < ApplicationController
   end
 
   def time_left?
-    return true if @test_passage.get_timer <= 0
-    false
+    @test_passage.get_timer <= 0
   end
 end
