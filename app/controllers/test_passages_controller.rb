@@ -15,7 +15,7 @@ class TestPassagesController < ApplicationController
     if params[:answer_ids]
       @test_passage.accept!(params[:answer_ids])
 
-      if @test_passage.completed?
+      if @test_passage.completed? || check_time_left
         TestsMailer.completed_test(@test_passage).deliver_now
         redirect_to result_test_passage_path(@test_passage)
       else
@@ -30,14 +30,14 @@ class TestPassagesController < ApplicationController
     service = GistQuestionService.new(@test_passage.current_question)
     result = service.call
     if service.success?
-        current_user.gists.create(
-          url: result.html_url, 
-          question_id: @test_passage.current_question.id, 
-          author_id: current_user.id)
+      current_user.gists.create(
+        url: result.html_url, 
+        question_id: @test_passage.current_question.id, 
+        author_id: current_user.id)
 
-        flash_options = { notice: t('.success') }
+      flash_options = { notice: t('.success') }
     else
-        flash_options = { notice: t('.failure') }
+      flash_options = { notice: t('.failure') }
     end
     redirect_to @test_passage, flash_options
   end
@@ -46,5 +46,13 @@ class TestPassagesController < ApplicationController
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def check_time_left
+    redirect_to result_test_passage_path(@test_passage) if time_left?
+  end
+
+  def time_left?
+    @test_passage.get_timer <= 0
   end
 end
