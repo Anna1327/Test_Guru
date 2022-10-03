@@ -16,8 +16,10 @@ class TestPassagesController < ApplicationController
       @test_passage.accept!(params[:answer_ids])
       
       if @test_passage.completed?
+        if @test_passage.passed?
+          @test_passage.update!(passed: true)
+        end
         TestsMailer.completed_test(@test_passage).deliver_now
-        BadgeService.new(@test_passage)
         redirect_to result_test_passage_path(@test_passage)
       else
         render :show
@@ -31,14 +33,14 @@ class TestPassagesController < ApplicationController
     service = GistQuestionService.new(@test_passage.current_question)
     result = service.call
     if service.success?
-        current_user.gists.create(
-          url: result.html_url, 
-          question_id: @test_passage.current_question.id, 
-          author_id: current_user.id)
+      current_user.gists.create(
+        url: result.html_url,
+        question_id: @test_passage.current_question.id,
+        author_id: current_user.id)
 
-        flash_options = { notice: t('.success') }
+      flash_options = { notice: t('.success') }
     else
-        flash_options = { notice: t('.failure') }
+      flash_options = { notice: t('.failure') }
     end
     redirect_to @test_passage, flash_options
   end

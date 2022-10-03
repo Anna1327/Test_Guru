@@ -2,6 +2,8 @@
   <span>
     <%= link_to "TestGuru", root_path, class: 'navbar-brand' %>
     <% if user_signed_in? %>
+      <button type="button" class="btn btn-outline-primary">
+      <%= link_to "User Badges", badges_path, class: 'nav-link' %>
       <% if current_user.admin? %>
         <button type="button" class="btn btn-outline-primary">
           <%= link_to t('header-nav.admin'), admin_tests_path, class: 'nav-link' %>

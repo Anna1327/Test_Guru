@@ -19,8 +19,10 @@ class TestPassage < ApplicationRecord
   end
 
   def passed?
+    badge_service = BadgeService.new(self)
     if completed? && success_percentage >= SUCCESS_PERCENT
-      true 
+      badge_service.check_completed_test
+      true
     elsif success_percentage < SUCCESS_PERCENT
       false
     end

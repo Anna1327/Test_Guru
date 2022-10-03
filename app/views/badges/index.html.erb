@@ -1,7 +1,16 @@
 <div class="badge-wrapper">
   <h1 class="badge_title">Your Badges</h1>
   <div class="user_badges_container">
-    <%= render current_user.badges %>
+    <table class="table">
+      <tr>
+        <th>
+          <%= t('.title') %>
+        </th>
+        <th>Image</th>
+        <th colspan="2">Condition</th>
+      </tr>
+        <%= render current_user.badges %>
+    </table>
   </div>
   <br>
   <h1 class="badge_title">All Badges<h1>

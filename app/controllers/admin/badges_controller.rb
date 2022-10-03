@@ -29,14 +29,7 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def update
-    Rails.logger.info("здесь параметры #{badge_params.inspect}")
-    if params[:badge][:image]
-      url = move_image_url(params[:badge][:image])
-      @badge_params[:image_url] = url
-      @badge_params.permit(:image_url)
-      Rails.logger.info("здесь основные параметры #{@badge_params.inspect}")
-    end
-    if @badge.update(@badge_params)
+    if @badge.update(badge_params)
       redirect_to admin_badges_path
     else
       render :edit
@@ -56,12 +49,5 @@ class Admin::BadgesController < Admin::BaseController
 
   def find_badge
     @badge = Badge.find(params[:id])
-  end
-
-  def move_image_url(image_url)
-    image_url = image_url.tempfile.path.to_s
-    path_to_file = "app/assets/images/badge#{Random.new.rand(1_000_000)}.png"
-    FileUtils.mv(image_url, path_to_file)
-    path_to_file
   end
 end
