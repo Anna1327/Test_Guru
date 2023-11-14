@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassage < ApplicationRecord
   SUCCESS_PERCENT = 85
 
@@ -19,11 +21,7 @@ class TestPassage < ApplicationRecord
   end
 
   def passed?
-    if completed? && success_percentage >= SUCCESS_PERCENT
-      true
-    else
-      false
-    end
+    completed? && success_percentage >= SUCCESS_PERCENT
   end
 
   def success_percentage

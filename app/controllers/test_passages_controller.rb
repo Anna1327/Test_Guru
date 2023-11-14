@@ -12,21 +12,16 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    if params[:answer_ids]
-      @test_passage.accept!(params[:answer_ids])
-      
-      if @test_passage.completed?
-        if @test_passage.passed?
-          @test_passage.update(passed: true)
-        end
-        BadgeService.new(@test_passage).check_completed_test
-        TestsMailer.completed_test(@test_passage).deliver_now
-        redirect_to result_test_passage_path(@test_passage)
-      else
-        render :show
-      end
+    @test_passage.accept!(params[:answer_ids])
+    if @test_passage.completed?
+      @test_passage.update!(passed: true) if @test_passage.passed?
+      badges = BadgeService.new(@test_passage).check_completed_test
+      win_badges_flash(badges.pluck(:title)) unless badges.nil?
+
+      TestsMailer.completed_test(@test_passage).deliver_now
+      redirect_to result_test_passage_path(@test_passage)
     else
-      redirect_to test_passage_path, notice: t('.no_answer')
+      render :show
     end
   end
 
@@ -37,7 +32,8 @@ class TestPassagesController < ApplicationController
       current_user.gists.create(
         url: result.html_url,
         question_id: @test_passage.current_question.id,
-        author_id: current_user.id)
+        author_id: current_user.id
+      )
 
       flash_options = { notice: t('.success') }
     else
@@ -50,5 +46,9 @@ class TestPassagesController < ApplicationController
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def win_badges_flash(badges)
+    flash[:success] = "#{t('test_passages.result.badge_win')}: #{badges.join(',')}!" unless badges.count.zero?
   end
 end

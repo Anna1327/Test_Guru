@@ -49,6 +49,11 @@ en:
     logout: "Logout"
     greeting: "Welcome"
     panel: "TestGuru Admin Panel"
+    test_guru: "Test Guru"
+    admin_panel: "Administrator"
+    admin_badges: "Admin Badges"
+    admin_gists: "Admin Gists"
+    user_badges: "User Badges"
 
   helpers:
     submit:
@@ -89,6 +94,7 @@ en:
       success: "Success! You passed test with "
       failed: "Failed! Test was finished with "
       result: "Test result"
+      badge_win: "You win"
     show:
       header: "Passing the %{title} Test"
       gist: 'Create a new Gist'
@@ -105,6 +111,13 @@ en:
     question: "Your question"
     text: "Write you text this..."
     send: "Send"
+  
+  badges:
+    index:
+      header: "Your Badges"
+      title: "Title"
+      image: "Image"
+      condition: "Condition"
 
   admin:
     tests:
@@ -145,6 +158,29 @@ en:
 
       new: 
         create_question: "Create new question"
+    
+    badges:
+      index:
+        header: "Admin badges"
+        new_badge: "New badge"
+        title: "Title"
+        image: "Image"
+        condition: "Condition"
+        action: "Actions"
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+
+      show:
+        title: "Title: "
+        image: "Image: "
+        condition: "Condition: "
+        edit: "Edit"
+        back: "Back"
+
+      edit:
+        edit_badge: "Edit badge"
+        back: "Back"
 
     answers:
       show:

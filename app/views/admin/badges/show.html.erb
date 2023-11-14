@@ -1,17 +1,17 @@
 <p>
-  <strong> Title </strong>
+  <strong><%= link_to t('.title') %></strong>
   <%= @badge.title %>
 </p>
 
 
 <p>
-  <strong> Image: </strong>
+  <strong><%= link_to t('.image') %></strong>
   <%= image_tag(@badge.image_url, size: "150x150") %>
 <p>
 
 
 <p>
-  <strong> Condition: </strong>
+  <strong><%= link_to t('.condition') %></strong>
     <%= @badge.condition %> 
 </p> 
 

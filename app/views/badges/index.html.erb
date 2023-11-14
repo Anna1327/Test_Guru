@@ -1,29 +1,19 @@
 <div class="badge-wrapper">
-  <h1 class="badge_title">Your Badges</h1>
+  <h1 class="badge_title"><%= t('.header') %></h1>
   <div class="user_badges_container">
     <table class="table">
       <tr>
         <th>
           <%= t('.title') %>
         </th>
-        <th>Image</th>
-        <th colspan="2">Condition</th>
+        <th>
+          <%= t('.image') %>
+        </th>
+        <th colspan="2">
+          <%= t('.condition') %>
+        </th>
       </tr>
         <%= render current_user.badges %>
-    </table>
-  </div>
-  <br>
-  <h1 class="badge_title">All Badges<h1>
-  <div class="all_badges_container">
-    <table class="table">
-      <tr>
-        <th>
-          <%= t('.title') %>
-        </th>
-        <th>Image</th>
-        <th colspan="2">Condition</th>
-      </tr>
-        <%= render @badges %>
     </table>
   </div>
 </div>
