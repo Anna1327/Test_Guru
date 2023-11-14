@@ -13,7 +13,7 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
-    if @test_passage.completed?
+    if @test_passage.completed? || check_time_left
       @test_passage.update!(passed: true) if @test_passage.passed?
       badges = BadgeService.new(@test_passage).check_completed_test
       win_badges_flash(badges.pluck(:title)) unless badges.nil?
@@ -50,5 +50,13 @@ class TestPassagesController < ApplicationController
 
   def win_badges_flash(badges)
     flash[:success] = "#{t('test_passages.result.badge_win')}: #{badges.join(',')}!" unless badges.count.zero?
+  end
+
+  def check_time_left
+    redirect_to result_test_passage_path(@test_passage) if time_left?
+  end
+
+  def time_left?
+    @test_passage.get_timer <= 0
   end
 end

@@ -56,6 +56,8 @@ en:
     user_badges: "User Badges"
 
   helpers:
+    minutes: " minutes"
+    time: "Time: "
     submit:
       create: "Create"
       update: "Update"
@@ -98,6 +100,8 @@ en:
     show:
       header: "Passing the %{title} Test"
       gist: 'Create a new Gist'
+      current_question: "Current question: "
+      of: " of "
     update:
       no_answer: 'Please select an answer'
     gist:
@@ -127,6 +131,7 @@ en:
         level: "Level"
         questions: "Questions"
         actions: "Actions"
+        time: "Time"
 
       show:
         title: "Title"

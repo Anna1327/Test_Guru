@@ -60,7 +60,7 @@ class Admin
     private
 
     def tests_params
-      params.require(:test).permit(:title, :level, :category_id, :published)
+      params.require(:test).permit(:title, :level, :category_id, :published, :timer)
     end
 
     def find_tests

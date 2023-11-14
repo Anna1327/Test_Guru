@@ -1,7 +1,12 @@
 <p>
   <strong><%= t('.title')%>:</strong>
   <%= @test.title %>
-
+</p>
+<p>
+  <strong><%= t('helpers.time')%></strong>
+  <%= @test.timer.to_s + t('helpers.minutes') %>
+</p>
+<p>
   <strong><%= t('.level')%>:</strong>
   <%= @test.level %>
 </p>
