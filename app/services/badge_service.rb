@@ -2,7 +2,7 @@
 
 class BadgeService
   RULES_MAP = {
-    category_id: BadgeAssignmentSpecifications::CategorySpecification,
+    category: BadgeAssignmentSpecifications::CategorySpecification,
     level: BadgeAssignmentSpecifications::LevelSpecification,
     first_try: BadgeAssignmentSpecifications::FirstTrySpecification
   }.freeze
@@ -10,8 +10,6 @@ class BadgeService
   def initialize(test_passage)
     @test_passage = test_passage
     @user = @test_passage.user
-    @test = @test_passage.test
-    @badges = Badge.all
     @user_completed_tests = TestPassage.where(user_id: @user.id, passed: true)
   end
 
@@ -22,7 +20,7 @@ class BadgeService
   private
 
   def gain_badges
-    @badges.select do |badge|
+    Badge.all.select do |badge|
       condition = JSON.parse badge.condition.gsub('=>', ':')
 
       if RULES_MAP[condition.keys[0].to_sym].new(badge: badge, test_passage: @test_passage, condition: condition).win?

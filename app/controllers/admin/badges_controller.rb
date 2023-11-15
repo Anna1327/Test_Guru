@@ -58,7 +58,7 @@ class Admin
 
     def dataset
       @condition = {
-        'category_id' => Category.all.pluck(:id, :title),
+        'category' => Category.all.pluck(:id, :title),
         'level' => TestsHelper::TEST_LEVELS.values.map { |val| [val, val] },
         'first_try' => []
       }
