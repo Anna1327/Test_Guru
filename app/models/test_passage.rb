@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassage < ApplicationRecord
   SUCCESS_PERCENT = 85
 
@@ -18,12 +20,12 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def success_percentage
-    (self.correct_questions * 100.0 / test.questions.count).round(1)
+  def passed?
+    completed? && success_percentage >= SUCCESS_PERCENT
   end
 
-  def passed?
-    success_percentage >= SUCCESS_PERCENT if completed?
+  def success_percentage
+    (self.correct_questions * 100.0 / test.questions.count).round(1)
   end
 
   def current_question_num

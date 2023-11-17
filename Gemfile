@@ -37,6 +37,8 @@ gem 'faraday', '1.8.0'
 #LOCALIZATION
 gem 'rails-i18n', '~> 7.0'
 
+gem 'fileutils', '~> 0.7.2'
+
 #UI
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.1.3'

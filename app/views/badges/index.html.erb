@@ -1,0 +1,22 @@
+<div class="badge-wrapper">
+  <h1 class="badge_title"><%= t('.header') %></h1>
+  <div class="user_badges_container">
+    <table class="table">
+      <tr>
+        <th>
+          <%= t('.title') %>
+        </th>
+        <th>
+          <%= t('.image') %>
+        </th>
+        <th>
+          <%= t('.rule') %>
+        </th>
+        <th>
+          <%= t('.value') %>
+        </th>
+      </tr>
+        <%= render current_user.badges %>
+    </table>
+  </div>
+</div>

@@ -18,6 +18,11 @@ ru:
     logout: "Выйти"
     greeting: "Добро пожаловать"
     panel: "Панель Администратора TestGuru"
+    test_guru: "Test Guru"
+    admin_panel: "Администратор"
+    admin_badges: "Управление наградами"
+    admin_gists: "Заметки"
+    user_badges: "Награды пользователя"
 
   helpers:
     minutes: " минут"
@@ -62,6 +67,7 @@ ru:
       success: "Отлично! Вы прошли тест на "
       failed: "Неудача! Тест был завершен на "
       result: "Результат теста"
+      badge_win: "Вы заработали"
     show:
       header: "Прохождение %{title} теста"
       gist: 'Создать Gist'
@@ -80,6 +86,14 @@ ru:
     question: "Ваш вопрос"
     text: "Напишите здесь ваш вопрос..."
     send: "Отправить"
+  
+  badges:
+    index:
+      header: "Ваши награды"
+      title: "Название"
+      image: "Изображение"
+      rule: "Условие выдачи"
+      value: "Значение"
 
   admin:
     tests:
@@ -123,6 +137,31 @@ ru:
 
       new: 
         create_question: "Создать новый вопрос"
+
+    badges:
+      index:
+        header: "Управление наградами"
+        new_badge: "Создать награду"
+        title: "Название"
+        image: "Изображение"
+        rule: "Условие выдачи"
+        value: "Значение"
+        action: "Действия"
+        show: "Показать"
+        edit: "Обновить"
+        delete: "Удалить"
+
+      show:
+        title: "Название: "
+        image: "Изображение: "
+        rule: "Условие выдачи: "
+        value: "Значение: "
+        edit: "Обновить"
+        back: "Назад"
+
+      edit:
+        edit_badge: "Обновить награду"
+        back: "Назад"
 
     answers:
       show:
