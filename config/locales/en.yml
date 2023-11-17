@@ -121,7 +121,8 @@ en:
       header: "Your Badges"
       title: "Title"
       image: "Image"
-      condition: "Condition"
+      rule: "Rule"
+      value: "Value"
 
   admin:
     tests:
@@ -170,7 +171,8 @@ en:
         new_badge: "New badge"
         title: "Title"
         image: "Image"
-        condition: "Condition"
+        rule: "Rule"
+        value: "Value"
         action: "Actions"
         show: "Show"
         edit: "Edit"
@@ -179,7 +181,8 @@ en:
       show:
         title: "Title: "
         image: "Image: "
-        condition: "Condition: "
+        rule: "Rule: "
+        value: "Value: "
         edit: "Edit"
         back: "Back"
 

@@ -3,10 +3,9 @@
 module BadgeAssignmentSpecifications
   class LevelSpecification < AbstractBadgeSpecification
     def win?
-      return false if @condition.keys[0] != 'level'
-      return false unless level_by_name(@condition.values[0]).include?(@test_passage.test.level)
+      return false unless level_by_name(@badge.value).include?(@test_passage.test.level)
 
-      tests = Test.where(level: level_by_name(@condition.values[0]))
+      tests = Test.where(level: level_by_name(@badge.value))
       passed_tests = TestPassage.where(user: @test_passage.user, test: tests, passed: true)
       tests.empty? || passed_tests.empty? ? false : (passed_tests.count % tests.count).zero?
     end

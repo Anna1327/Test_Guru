@@ -49,7 +49,7 @@ class Admin
     private
 
     def badge_params
-      @badge_params ||= params.require(:badge).permit(:title, :image_url, :condition)
+      @badge_params ||= params.require(:badge).permit(:title, :image_url, :rule, :value)
     end
 
     def find_badge
@@ -57,7 +57,7 @@ class Admin
     end
 
     def dataset
-      @condition = {
+      @rule = {
         'category' => Category.all.pluck(:id, :title),
         'level' => TestsHelper::TEST_LEVELS.values.map { |val| [val, val] },
         'first_try' => []

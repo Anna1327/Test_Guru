@@ -3,12 +3,10 @@
 class AbstractBadgeSpecification
   def initialize(
     badge:,
-    test_passage:,
-    condition:
+    test_passage:
   )
     @badge = badge
     @test_passage = test_passage
-    @condition = condition
   end
 
   def win?

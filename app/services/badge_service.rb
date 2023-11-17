@@ -21,11 +21,8 @@ class BadgeService
 
   def gain_badges
     Badge.all.select do |badge|
-      condition = JSON.parse badge.condition.gsub('=>', ':')
-
-      if RULES_MAP[condition.keys[0].to_sym].new(badge: badge, test_passage: @test_passage, condition: condition).win?
-        new_badge = @user.user_badges.new(badge_id: badge.id)
-        new_badge.save
+      if RULES_MAP[badge.rule.to_sym].new(badge: badge, test_passage: @test_passage).win?
+        @user.user_badges.create!(badge_id: badge.id)
       end
     end
   end

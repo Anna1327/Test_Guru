@@ -1,11 +1,11 @@
 <%= form_with model: [:admin, @badge], local: true do |form| %>
   <%= render 'shared/errors', resource: @badge %>
 
-  <div>Условие выдачи бейджа записывается в поле Condition через { " " => " "}:
+  <div>Условие выдачи бейджа записывается в поля Rule/Value:
     <p>Примеры:</p>
-    <p>{ "category" => "Frontend"}</p>
-    <p>{ "level" => "easy"}</p>
-    <p>{ "first_try" => true}</p>
+    <p>rule = "category", value = "Frontend"</p>
+    <p>rule = "level", value = "easy"</p>
+    <p>rule = "first_try", value = "true"</p>
   </div>
 
   <p>
@@ -20,8 +20,13 @@
   </p>
 
   <p>
-    <%= form.label :condition %> <br>
-    <%= form.text_field :condition, id: :badge_condition_id %>
+    <%= form.label :rule %> <br>
+    <%= form.text_field :rule, id: :badge_rule_id %>
+  </p>
+
+  <p>
+    <%= form.label :value %> <br>
+    <%= form.text_field :value, id: :badge_value_id %>
   </p>
 
   <p><%= form.submit %></p>

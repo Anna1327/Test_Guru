@@ -3,7 +3,8 @@
     <%= content_tag :span, badge.title, class: 'test-title', data: { badge_id: badge.id } %>
   </td>
   <td class="align-middle"><%= image_tag(badge.image_url, size: "80x80") %></td>
-  <td class="align-middle"><%= badge.condition %></td>
+  <td class="align-middle"><%= badge.rule %></td>
+  <td class="align-middle"><%= badge.value %></td>
   <td class="align-middle"><%= link_to t('admin.badges.index.show'), admin_badge_path(badge) %></td>
   <td class="align-middle">
     <%= link_to t('admin.badges.index.edit'), edit_admin_badge_path(badge) %>
